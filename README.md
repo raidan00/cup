@@ -1,2 +1,2 @@
 # cup
-Google Code Jam solutions on pure c
+Google Code Jam solutions in pure c
