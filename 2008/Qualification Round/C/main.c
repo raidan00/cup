@@ -29,7 +29,7 @@ int main (){
 				// Only (x1,y1) inside circle.
 				ar += circle_segment(rad, acos(x1/rad) - asin(y1/rad)) + (sqrt(rad*rad - x1*x1)-y1) * (sqrt(rad*rad - y1*y1)-x1) / 2;
 			} else if (x1*x1 + y2*y2 >= rad*rad) {
-			// (x1,y1) and (x2,y1) inside circle.
+				// (x1,y1) and (x2,y1) inside circle.
 				ar += circle_segment(rad, acos(x1/rad) - acos(x2/rad)) + (x2-x1) * (sqrt(rad*rad - x1*x1)-y1 + sqrt(rad*rad - x2*x2)-y1) / 2;
 			} else if (x2*x2 + y1*y1 >= rad*rad) {
 				// (x1,y1) and (x1,y2) inside circle.
