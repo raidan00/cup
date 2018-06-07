@@ -28,7 +28,7 @@ int main (){
 		qsort(v2, n, sizeof(int), cmpdes);
 		long long result = 0;
 		for(int i = 0; i < n; i++){
-			result += (long long)(v1[i])*v2[i];
+			result += (long)(v1[i])*v2[i];
 		}
 		printf("Case #%d: %lld\n", i+1, result);
 	}
