@@ -25,11 +25,8 @@ int check( int *flavors, struct cust *customers ){
 			}
 		}
 	}
-
 	printf("Case #%d:", Case+1);
-	for (int i = 0; i < N; i++) {
-		printf(" %d", flavors[i]);
-	}
+	for (int i = 0; i < N; i++) printf(" %d", flavors[i]);
 	printf("\n");
 }
 int cmpfunc (const void * a, const void * b) {
