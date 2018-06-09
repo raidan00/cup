@@ -6,7 +6,7 @@ typedef struct {
 mx2 matrixMult(mx2 A, mx2 B){
 	mx2 mxEmpty = { {{0, 0}, {0, 0}} };
 	static mx2 C;
-	memcpy(&C, &mxEmpty, sizeof( mx2 ));
+	C = mxEmpty;
 	for ( int i = 0; i < 2; i ++)
 	for ( int j = 0; j < 2; j ++)
 	for ( int k = 0; k < 2; k ++)
