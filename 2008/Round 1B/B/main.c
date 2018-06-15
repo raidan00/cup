@@ -1,9 +1,5 @@
 #include <stdio.h>
 
-typedef struct {
-	long num;
-	void **p;
-}num;
 int main(){
 	freopen("B-small-practice.in", "r", stdin);
 	freopen("out.out", "w", stdout);
@@ -14,11 +10,8 @@ int main(){
 		long A, B, P;
 		scanf("%ld %ld %ld\n", &A, &B, &P);
 		long len = B - A + 1;
-		num nums[len];
 		void *unions[len];
 		for(int i = 0; i < len; i++){
-			nums[i].num = A+i;
-			nums[i].p = &unions[i];
 			unions[i] = &unions[i];
 		}
 		long primes[B - P];
@@ -39,12 +32,12 @@ int main(){
 				long prime = P+k;	
 				int flag = primes[k];
 				if (flag){
-					if (nums[i].num%prime == 0 && nums[j].num%prime == 0){
-						void **p = nums[j].p;
+					if ((i + A)%prime == 0 && (j + A)%prime == 0){
+						void **p = unions+j;
 						while ( *p != &(*p) ){
 							p = *p;
 						}
-						void **p1 = nums[i].p;
+						void **p1 = unions+i;
 						while ( *p1 != &(*p1) ){
 							p1 = *p1;
 						}
