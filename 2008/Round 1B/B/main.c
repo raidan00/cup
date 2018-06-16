@@ -1,9 +1,22 @@
+// !!!!!!!!!!! only B-small-practice !!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!! only B-small-practice !!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!! only B-small-practice !!!!!!!!!!!!!!!!!!
 #include <stdio.h>
+#include <math.h>
 
 int main(){
 	freopen("B-small-practice.in", "r", stdin);
 	freopen("out.out", "w", stdout);
 
+	int n = 1000000;
+	_Bool primes[n];
+	int i, j;
+	for (i=0;i<n;i++)
+		primes[i]=1; 
+	primes[0]=0,primes[1]=0;
+	for (i=2;i<sqrt(n);i++)
+		for (j=i*i;j<n;j+=i)
+			primes[j] = 0;
 	int C;
 	scanf("%d\n", &C);
 	for(int i=0; i<C; i++){
@@ -14,37 +27,27 @@ int main(){
 		for(int i = 0; i < len; i++){
 			unions[i] = &unions[i];
 		}
-		long primes[B - P];
-		for(long prime = P; prime < B; prime++) {
-			int flag = 1;
-			for (long k = 2; k < prime; k++) {
-				if (prime % k == 0) {flag = 0; break;}
-			}
+		for(long k = P; k < len; k++) {
+			long prime = k;	
+			int flag = primes[k];
 			if (flag){
-				primes[prime-P] = 1;
-			}else{
-				primes[prime-P] = 0;
-			}
-		}
-		for(int i = 0; i < len; i++)
-		for(int j = i+1; j < len; j++){
-			for(long k = 0; k < B-P; k++) {
-				long prime = P+k;	
-				int flag = primes[k];
-				if (flag){
-					if ((i + A)%prime == 0 && (j + A)%prime == 0){
-						void **p = unions+j;
-						while ( *p != &(*p) ){
-							p = *p;
+				void **p = NULL;
+				for(int i = 0; i < len; i++){
+					if ((i + A)%prime == 0){
+						if(p == NULL){
+							p = unions+i;
+							while ( *p != &(*p) ){
+								p = *p;
+							}
+						} else {
+							void **p1 = unions+i;
+							while ( *p1 != &(*p1) ){
+								p1 = *p1;
+							}
+							*p1 = *p;
 						}
-						void **p1 = unions+i;
-						while ( *p1 != &(*p1) ){
-							p1 = *p1;
-						}
-						*p = *p1;
 					}
 				}
-
 			}
 		}
 		int count = 0;
