@@ -6,4 +6,4 @@ gcc main.c -o main -lm && ./main
 ```
 ### Note
 1. Code tested on Ubuntu, GCC compiler.
-2. For code concise, I do not always free allocated memory.
+2. For code concise, I am not always free allocated memory.
